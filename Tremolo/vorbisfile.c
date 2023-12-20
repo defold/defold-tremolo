@@ -573,6 +573,14 @@ static int _fetch_and_process_packet(OggVorbis_File *vf,
 	  goto cleanup;
 	}
 	if(result>0){
+    // DEF-2458
+    // Although the result is 1, the packet may be null
+    // In the tested case (last page of the vlc encoded file), we never got to the last read
+    // which would yield an EOF. Skipping this null-packet seems to work.
+    if (op.packet == NULL) {
+      break;
+    }
+
 	  /* got a packet.  process it */
 	  granulepos=op.granulepos;
 	  if(!vorbis_dsp_synthesis(vf->vd,&op,1)){ /* lazy check for lazy

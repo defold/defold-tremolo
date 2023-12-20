@@ -73,7 +73,7 @@ static int ilog(unsigned int v){
   return(ret);
 }
 
-static void mergesort(ogg_uint8_t *index,ogg_uint16_t *vals,ogg_uint16_t n){
+static void tremolo_mergesort(ogg_uint8_t *index,ogg_uint16_t *vals,ogg_uint16_t n){
   ogg_uint16_t i,j;
   ogg_uint8_t *temp,*A=index,*B=_ogg_malloc(n*sizeof(*B));
 
@@ -168,7 +168,7 @@ vorbis_info_floor *floor1_info_unpack (vorbis_info *vi,oggpack_buffer *opb){
 
   /* also store a sorted position index */
   for(j=0;j<info->posts;j++)info->forward_index[j]=j;
-  mergesort(info->forward_index,info->postlist,info->posts);
+  tremolo_mergesort(info->forward_index,info->postlist,info->posts);
 
   /* discover our neighbors for decode where we don't use fit flags
      (that would push the neighbors outward) */

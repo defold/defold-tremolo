@@ -117,7 +117,12 @@
 
 #  include <sys/types.h>
 #  include "config_types.h"
+
+#if defined(__APPLE__)
+#  include <machine/endian.h>
+#else
 #  include <endian.h>
+#endif
 
 #endif
 

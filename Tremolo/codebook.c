@@ -39,7 +39,7 @@
 #include <string.h>
 #include <math.h>
 #include <limits.h>
-#include <log/log.h>
+//#include <log/log.h>
 #include "ogg.h"
 #include "ivorbiscodec.h"
 #include "codebook.h"
@@ -161,7 +161,7 @@ static int _make_words(char *l,long n,ogg_uint32_t *r,long quantvals,
       long length=l[i];
       if(length){
         if (length < 0 || length >= MARKER_SIZE) {
-          ALOGE("b/23881715");
+          //ALOGE("b/23881715");
           return 1;
         }
         ogg_uint32_t entry=marker[length];

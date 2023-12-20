@@ -38,7 +38,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include <log/log.h>
+//#include <log/log.h>
 #include "ogg.h"
 #include "ivorbiscodec.h"
 #include "codec_internal.h"
@@ -432,7 +432,7 @@ ogg_int32_t *floor0_inverse1(vorbis_dsp_state *vd,vorbis_info_floor *i,
       codebook *b=ci->book_param+info->books[booknum];
       int sz = floor0_memosize(i);
       if (sz < b->dim) {
-          ALOGE("lsp too small: %d < %ld", sz, b->dim);
+          //ALOGE("lsp too small: %d < %ld", sz, b->dim);
           return NULL;
       }
       ogg_int32_t last=0;
