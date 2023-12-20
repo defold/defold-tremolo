@@ -4,9 +4,6 @@
 
 set -e
 
-readonly SOURCE_DIR=./tremolo
-readonly PRODUCT=tremolo
-
 PLATFORM=$1
 
 if [ "" == "${CC}" ]; then
