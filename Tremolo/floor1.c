@@ -374,7 +374,9 @@ ogg_int32_t *floor1_inverse1(vorbis_dsp_state *vd,vorbis_info_floor *in,
 }
 
 // overflowing calculations not used for indexing
+#if !defined(_MSC_VER)
 __attribute__((no_sanitize("signed-integer-overflow")))
+#endif
 int floor1_inverse2(vorbis_dsp_state *vd,vorbis_info_floor *in,
 		    ogg_int32_t *fit_value,ogg_int32_t *out){
   vorbis_info_floor1 *info=(vorbis_info_floor1 *)in;

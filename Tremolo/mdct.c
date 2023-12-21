@@ -323,7 +323,9 @@ STIN void mdct_step7(DATA_TYPE *x,int n,int step){
 }
 #endif
 
+#if !defined(_MSC_VER)
 __attribute__((no_sanitize("signed-integer-overflow")))
+#endif
 STIN void mdct_step8(DATA_TYPE *x, int n, int step){
   LOOKUP_T *T;
   LOOKUP_T *V;

@@ -66,7 +66,10 @@ extern void _VDBG_free(void *ptr);
 #ifndef  _LOW_ACCURACY_
 /* 64 bit multiply */
 
-#if defined(__APPLE__)
+#if defined(_MSC_VER)
+# define LITTLE_ENDIAN 1234
+# define BYTE_ORDER LITTLE_ENDIAN
+#elif defined(__APPLE__)
 #  include <machine/endian.h>
 #else
 #  include <endian.h>
@@ -157,7 +160,7 @@ static inline ogg_int32_t MULT31_SHIFT15(ogg_int32_t x, ogg_int32_t y) {
  * macros.
  */
 
-#ifdef __i386__
+#if defined(__i386__) || defined(_MSC_VER)
 
 #define XPROD32(_a, _b, _t, _v, _x, _y)		\
   { *(_x)=MULT32(_a,_t)+MULT32(_b,_v);		\
