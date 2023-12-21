@@ -37,6 +37,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 #include <math.h>
 //#include <log/log.h>
 #include "ogg.h"

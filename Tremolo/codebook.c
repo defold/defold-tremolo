@@ -39,6 +39,7 @@
 #include <string.h>
 #include <math.h>
 #include <limits.h>
+#include <stdint.h>
 //#include <log/log.h>
 #include "ogg.h"
 #include "ivorbiscodec.h"
